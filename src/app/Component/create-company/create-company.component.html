@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="center">
+        <div class="logout">
+            <button class="btn btn-danger" (click)="logout()">Salir</button>
+        </div>
+        <h1>Crear Empresa</h1>
+    </div>
+    <form [formGroup]="formCreate" (ngSubmit)="createCompany()">
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="exampleInputEmail1">Nombre de la empresa</label>
+                <input type="text" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="name">
+            </div>
+            <div class="form-group col">
+                <label for="exampleInputEmail1">País</label>
+                <input type="text" required class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="country">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="exampleInputPassword1">Nit de la empresa</label>
+                <input type="text" required class="form-control" id="exampleInputPassword1" formControlName="nit">
+            </div>
+            <div class="form-group col">
+                <label for="typeCompany">Tipo de Empresa</label>
+                <select class="form-control form-control-lg" id="typeCompany" formControlName="typeCompany">
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let item of typeCompany " [value]="item.idtype">{{item.type}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="inputCity">Direccion</label>
+                <input type="text" required class="form-control" id="inputCity" formControlName="address">
+            </div>
+            <div class="form-group col">
+                <label for="phone">Telefono</label>
+                <input type="text" required class="form-control" id="phone" formControlName="phone">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col">
+                <label for="city">Ciudad</label>
+                <input type="text" required class="form-control" id="city" formControlName="city">
+            </div>
+            <div class="form-group col">
+                <label for="department">Departamento</label>
+                <input type="text" required class="form-control" id="department" formControlName="deparment">
+            </div>
+        </div>
+        <div class="center">
+            <button type="submit" [disabled]="!formCreate.valid" class="btn btn-primary mr-5">Crear</button>
+            <button class="btn btn-primary" (click)=goToShow()>Ver Empresas</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+.createContainer {
+    background-image: url("/assets/img/acm_desktopcta.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.logout {
+    display: flex;
+    margin-top: 15px;
+}

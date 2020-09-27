@@ -1,0 +1,35 @@
+<div class="container">
+    <br>
+    <br>
+    <div class="center">
+        <h1>Listado de Empresas Registradas</h1>
+    </div>
+    <br>
+    <br>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Nit</th>
+                <th scope="col">tipo</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Ciudad</th>
+                <th scope="col">País</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of data">
+                <th scope="row">{{item.name}}</th>
+                <td>{{item.nit}}</td>
+                <td>{{item.type.type}}</td>
+                <td>{{item.address}}</td>
+                <td>{{item.phone}}</td>
+                <td>{{item.city}}</td>
+                <td>{{item.country}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <button class="btn btn-primary" (click)=back()>Volver</button>
+</div>
