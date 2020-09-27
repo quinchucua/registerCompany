@@ -17,6 +17,6 @@ Si no se utiliza este puerto, se tendra que cambiar la urlBase del front, para q
 escuchando. Para eso se debe ir al siguiente archivo: front-angular\src\app\Services\Base\base-service.service.ts y en el archivo cambiar la variable urlBase. 
 EL valor actual es private urlBase = `http://localhost:8082/`  y se deberia cambiar el puerto, por el que use el servidor para escuchar las peticiones.
 
-El back fue desarrollado en java ee con el `jdk 1.8` y esta hecho con maven.
+El back fue desarrollado en java ee y esta hecho con maven, se debe compilar con el `jdk 1.8`.
 
 En el front se encuentra un login basico y las credenciales son: `usuario = prueba y contraseña = 123456`
