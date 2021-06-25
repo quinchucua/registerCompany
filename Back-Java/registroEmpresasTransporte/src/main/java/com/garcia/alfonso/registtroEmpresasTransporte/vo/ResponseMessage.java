@@ -9,7 +9,7 @@ package com.garcia.alfonso.registtroEmpresasTransporte.vo;
  *
  * @author Alfonso_Garcia_Q
  */
-public class responseMessage {
+public class ResponseMessage {
     
     private String message;
 

@@ -9,12 +9,19 @@ const httpOptions = {
   })
 };
 
+const httpOptions2 = {
+  headers: new HttpHeaders({
+    'enctype': 'multipart/form-data',
+    'Accept': '*/*'
+  })
+};
+
 @Injectable({
   providedIn: 'root'
 })
 export class BaseServiceService {
 
-  private urlBase = 'http://localhost:8082/';
+  private urlBase = 'http://127.0.0.1:7001/'; 
   private resources = 'registroEmpresasTransporte/resources/'
 
   constructor(private http: HttpClient) { }
@@ -30,5 +37,9 @@ export class BaseServiceService {
 
   protected postServiceObservable(url: string, body: any) {
     return this.http.post(this.urlBase + this.resources + url, body, { headers: httpOptions.heahers, observe: 'response' });
+  }
+
+  protected postServiceFileObservable(url: string, body: any) {
+    return this.http.post(this.urlBase + this.resources + url, body, { headers: httpOptions2.headers, observe: 'response' });
   }
 }

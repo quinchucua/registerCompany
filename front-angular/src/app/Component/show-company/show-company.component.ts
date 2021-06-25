@@ -15,7 +15,10 @@ export class ShowCompanyComponent implements OnInit {
   constructor( private service: CompanyService, private location: Location) { }
 
   ngOnInit() {
+    this.searchCompanies();
+  }
 
+  searchCompanies(){
     this.service.listCompanies().subscribe( data => {
       if(data.length > 0){
         this.data = data;
@@ -33,8 +36,7 @@ export class ShowCompanyComponent implements OnInit {
         'Se Presento un error al consultar las empresas',
         'error'
       );
-    })
-
+    });
   }
 
 

@@ -9,6 +9,7 @@ export class CompanyService extends BaseServiceService{
 
   private urlCreate = 'company/create';
   private urlListCompanies = 'company/findCompanies';
+  private urlUploadFile = 'company/uploadFile';
 
   constructor(http: HttpClient) { super(http)}
 
@@ -18,5 +19,9 @@ export class CompanyService extends BaseServiceService{
 
   listCompanies(){
     return this.getServiceObservable(this.urlListCompanies);
+  }
+
+  uploadFile( body: FormData){
+    return this.postServiceFileObservable(this.urlUploadFile, body);
   }
 }

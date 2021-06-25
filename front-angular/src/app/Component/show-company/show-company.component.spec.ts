@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppModule } from 'src/app/app.module';
+import {ActivatedRoute} from "@angular/router";
 
 import { ShowCompanyComponent } from './show-company.component';
 
@@ -8,9 +10,9 @@ describe('ShowCompanyComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShowCompanyComponent ]
+      imports: [AppModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +23,10 @@ describe('ShowCompanyComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it("should call searchCompanies after being created", () => {
+    spyOn(component, "searchCompanies");
+    component.ngOnInit();
+    expect(component.searchCompanies).toHaveBeenCalled();
   });
 });

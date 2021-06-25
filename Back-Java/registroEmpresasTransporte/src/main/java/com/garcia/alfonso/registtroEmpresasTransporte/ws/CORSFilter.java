@@ -70,7 +70,7 @@ public class CORSFilter implements Filter {
         }
 
         ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Methods", "GET, OPTIONS, HEAD, PUT, POST, DELETE, HEAD");
-        ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept");
+        ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept, enctype");
 
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 

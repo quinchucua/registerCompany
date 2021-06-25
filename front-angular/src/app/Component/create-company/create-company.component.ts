@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { CompanyService } from 'src/app/Services/Company/company.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
@@ -14,9 +14,14 @@ export class CreateCompanyComponent implements OnInit {
   typeCompany: any[]
   selectedType: any;
   formCreate: FormGroup;
+  uploadForm: FormGroup;
   newCompany: any;
 
-  constructor(private servicio: CompanyService, private router: Router) { }
+  @ViewChild('fileInput', {static: false})
+  fileInput: ElementRef;
+
+  constructor(private servicio: CompanyService, private router: Router,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.typeCompany = [{
@@ -59,7 +64,30 @@ export class CreateCompanyComponent implements OnInit {
         type: ''
       }
     }
+    this.uploadForm = this.formBuilder.group({
+      fileUpload: ['']
+    });
 
+  }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.uploadForm.get('fileUpload').value);
+    this.servicio.uploadFile(formData).subscribe( resp => {
+      Swal.fire(
+        'Bien',
+        'Se subio el archivo éxitosamente',
+        'success'
+      );
+      this.fileInput.nativeElement.value = "";
+    });
+  }
+
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('fileUpload').setValue(file);
+    }
   }
 
   createCompany() {

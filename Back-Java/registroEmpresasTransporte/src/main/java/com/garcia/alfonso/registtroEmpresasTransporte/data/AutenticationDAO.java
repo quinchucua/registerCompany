@@ -5,7 +5,7 @@
  */
 package com.garcia.alfonso.registtroEmpresasTransporte.data;
 
-import com.garcia.alfonso.registtroEmpresasTransporte.vo.responseMessage;
+import com.garcia.alfonso.registtroEmpresasTransporte.vo.ResponseMessage;
 
 /**
  *
@@ -16,8 +16,8 @@ public class AutenticationDAO {
     private final String USER = "prueba";
     private final String PASSWORD = "123456";
     
-    public responseMessage userAutentition ( String user, String password) {
-        responseMessage response = new responseMessage();
+    public ResponseMessage userAutentition ( String user, String password) {
+        ResponseMessage response = new ResponseMessage();
         if ( user.equalsIgnoreCase(USER) && password.equalsIgnoreCase(PASSWORD)){
             response.setMessage("confirmado");
         } else {

@@ -6,7 +6,7 @@
 package com.garcia.alfonso.registtroEmpresasTransporte.negocio;
 
 import com.garcia.alfonso.registtroEmpresasTransporte.data.AutenticationDAO;
-import com.garcia.alfonso.registtroEmpresasTransporte.vo.responseMessage;
+import com.garcia.alfonso.registtroEmpresasTransporte.vo.ResponseMessage;
 import javax.inject.Inject;
 
 /**
@@ -18,7 +18,7 @@ public class AutenticationFacade {
     @Inject
     AutenticationDAO dao;
     
-    public responseMessage userAutentication(String user, String password){
+    public ResponseMessage userAutentication(String user, String password){
         return dao.userAutentition(user, password);
     }
     

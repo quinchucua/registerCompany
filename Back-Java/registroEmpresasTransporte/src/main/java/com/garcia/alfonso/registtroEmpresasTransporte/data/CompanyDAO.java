@@ -6,7 +6,7 @@
 package com.garcia.alfonso.registtroEmpresasTransporte.data;
 import com.garcia.alfonso.registtroEmpresasTransporte.vo.Company;
 import com.garcia.alfonso.registtroEmpresasTransporte.vo.TypeCompany;
-import com.garcia.alfonso.registtroEmpresasTransporte.vo.responseMessage;
+import com.garcia.alfonso.registtroEmpresasTransporte.vo.ResponseMessage;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -20,8 +20,8 @@ public class CompanyDAO {
         
     List<Company> companies = new ArrayList<>(); 
     
-    public responseMessage createCompany( Company company){
-        responseMessage response = new responseMessage();
+    public ResponseMessage createCompany( Company company){
+        ResponseMessage response = new ResponseMessage();
         this.companies.add(company);        
         response.setMessage("OK");
         return response;
